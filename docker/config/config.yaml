@@ -1,0 +1,24 @@
+# Default config. Override by mounting a different file at /config/config.yaml.
+service:
+  name: nats-otlp-forwarder
+  version: "0.1.0"
+
+nats:
+  url: nats://nats:4222
+  creds_file: /secrets/nats-otlp-forwarder.creds
+  connection_name: nats-otlp-forwarder
+  subscriptions:
+    traces: ""
+    logs: ""
+    metrics: ""
+
+collector:
+  endpoint: http://otel-collector:4318
+  timeout: 10s
+  max_retries: 2
+  retry_backoff: 100ms
+
+server:
+  log_level: info
+  log_format: json
+  metrics_port: 8080
