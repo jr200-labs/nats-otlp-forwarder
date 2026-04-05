@@ -20,7 +20,7 @@ RUN make build && \
 # Runtime stage
 FROM alpine:3
 
-LABEL org.opencontainers.image.source="https://github.com/jr200/nats-otlp-forwarder"
+LABEL org.opencontainers.image.source="https://github.com/jr200-labs/nats-otlp-forwarder"
 LABEL org.opencontainers.image.description="nats-otlp-forwarder runtime"
 
 RUN apk add --no-cache ca-certificates wget && \

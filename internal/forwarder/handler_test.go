@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jr200/nats-otlp-forwarder/internal/metrics"
+	"github.com/jr200-labs/nats-otlp-forwarder/internal/metrics"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/jr200/nats-otlp-forwarder/internal/metrics"
+	"github.com/jr200-labs/nats-otlp-forwarder/internal/metrics"
 	"go.uber.org/zap"
 )
 

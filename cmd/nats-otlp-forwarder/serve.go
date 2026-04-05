@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jr200/nats-otlp-forwarder/internal/forwarder"
+	"github.com/jr200-labs/nats-otlp-forwarder/internal/forwarder"
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 )

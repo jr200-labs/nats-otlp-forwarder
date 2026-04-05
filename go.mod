@@ -1,4 +1,4 @@
-module github.com/jr200/nats-otlp-forwarder
+module github.com/jr200-labs/nats-otlp-forwarder
 
 go 1.26.1
 

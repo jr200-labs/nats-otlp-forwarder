@@ -6,8 +6,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/jr200/nats-otlp-forwarder/internal/logging"
-	"github.com/jr200/nats-otlp-forwarder/internal/metrics"
+	"github.com/jr200-labs/nats-otlp-forwarder/internal/logging"
+	"github.com/jr200-labs/nats-otlp-forwarder/internal/metrics"
 	"github.com/nats-io/nats.go"
 	"go.uber.org/zap"
 )

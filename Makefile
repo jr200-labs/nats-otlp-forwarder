@@ -6,7 +6,7 @@ VERSION := $(shell grep '^version' pyproject.toml | head -1 | sed 's/.*"\(.*\)"/
 .DEFAULT_GOAL := all
 
 DEV_REGISTRY ?= localhost:5005
-DEV_IMAGE ?= $(DEV_REGISTRY)/jr200/nats-otlp-forwarder:dev
+DEV_IMAGE ?= $(DEV_REGISTRY)/jr200-labs/nats-otlp-forwarder:dev
 
 .PHONY: all fmt test test-integration test-race view-coverage lint build clean bump release docker-build-dev docker-push-dev
 
