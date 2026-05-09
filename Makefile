@@ -1,14 +1,17 @@
 export GOOS ?= $(shell go env GOOS)
 export GOARCH ?= $(shell go env GOARCH)
 
-VERSION := $(shell grep '^version' pyproject.toml | head -1 | sed 's/.*"\(.*\)"/\1/')
+# Version is maintained by release-please in .release-please-manifest.json.
+# Never edit the manifest by hand - push conventional commits and let
+# release-please open a PR.
+VERSION := $(shell sed -n 's/.*"\.": *"\([^"]*\)".*/\1/p' .release-please-manifest.json)
 
 .DEFAULT_GOAL := all
 
 DEV_REGISTRY ?= localhost:5005
 DEV_IMAGE ?= $(DEV_REGISTRY)/jr200-labs/nats-otlp-forwarder:dev
 
-.PHONY: all fmt test test-integration test-race view-coverage lint build clean bump release docker-build-dev docker-push-dev
+.PHONY: all fmt test test-integration test-race view-coverage lint build clean docker-build-dev docker-push-dev
 
 all: fmt lint build
 
@@ -50,19 +53,6 @@ clean:
 	rm -f coverage.out
 	go clean -testcache
 
-bump:
-	@if [ -z "$(PART)" ]; then echo "Usage: make bump PART=major|minor|patch"; exit 1; fi
-	@IFS='.' read -r major minor patch <<< "$(VERSION)"; \
-	case "$(PART)" in \
-		major) major=$$((major + 1)); minor=0; patch=0;; \
-		minor) minor=$$((minor + 1)); patch=0;; \
-		patch) patch=$$((patch + 1));; \
-		*) echo "PART must be major, minor, or patch"; exit 1;; \
-	esac; \
-	new_version="$$major.$$minor.$$patch"; \
-	sed -i '' "s/^version = \"$(VERSION)\"/version = \"$$new_version\"/" pyproject.toml; \
-	echo "Bumped version: $(VERSION) -> $$new_version"
-
 docker-build-dev:
 	docker build \
 		--build-arg BUILD_OS=linux \
@@ -74,8 +64,6 @@ docker-build-dev:
 docker-push-dev: docker-build-dev
 	docker push $(DEV_IMAGE)
 
-release: lint test test-integration
-	@echo "Creating release v$(VERSION)..."
-	git tag "v$(VERSION)"
-	git push origin "v$(VERSION)"
-	gh release create "v$(VERSION)" --generate-notes
+# NOTE: releases are fully automated via release-please - see
+# .github/workflows/release-please.yaml. Do not add bump/release targets
+# here; they will drift from the CI flow.
