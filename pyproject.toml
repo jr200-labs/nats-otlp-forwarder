@@ -1,6 +1,0 @@
-[project]
-name = "nats-otlp-forwarder"
-version = "0.1.0"
-description = "Forward OTLP telemetry from NATS subjects to an OTel Collector"
-readme = "README.md"
-requires-python = ">=3.11"

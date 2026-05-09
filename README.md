@@ -72,10 +72,11 @@ make build             # static binary in ./build/
 
 ## Release
 
-```sh
-make bump PART=patch   # or minor/major
-make release           # runs lint+test+integration, then tag + GH release
-```
+Releases are automated by release-please. Push Conventional Commits to `master`,
+review the standing release PR, and merge it to cut the next version.
+
+Version metadata is stored in `.release-please-manifest.json` and embedded into
+the Go binary at build time via ldflags.
 
 ## License
 
