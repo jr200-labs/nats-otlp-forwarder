@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.3](https://github.com/jr200-labs/nats-otlp-forwarder/compare/v0.1.2...v0.1.3) (2026-06-19)
+
+
+### Features
+
+* **deps:** update github-actions to v7 ([#18](https://github.com/jr200-labs/nats-otlp-forwarder/issues/18)) ([07870ce](https://github.com/jr200-labs/nats-otlp-forwarder/commit/07870ce430bfb804bc9853d1bef45656894ff86d))
+
+
+### Bug Fixes
+
+* **deps:** update shared workflow ref to shared-v0.1.9 ([#16](https://github.com/jr200-labs/nats-otlp-forwarder/issues/16)) ([454d948](https://github.com/jr200-labs/nats-otlp-forwarder/commit/454d9480527d2d2d19fe32a53faa5159a4297372))
+
 ## [0.1.2](https://github.com/jr200-labs/nats-otlp-forwarder/compare/v0.1.1...v0.1.2) (2026-05-14)
 
 
