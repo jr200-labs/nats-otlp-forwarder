@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.1.4](https://github.com/jr200-labs/nats-otlp-forwarder/compare/v0.1.3...v0.1.4) (2026-07-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.19 ([#25](https://github.com/jr200-labs/nats-otlp-forwarder/issues/25)) ([00b22d2](https://github.com/jr200-labs/nats-otlp-forwarder/commit/00b22d29291ffb72cd62f035e1a23a8f4a720997))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.20 ([#26](https://github.com/jr200-labs/nats-otlp-forwarder/issues/26)) ([6331744](https://github.com/jr200-labs/nats-otlp-forwarder/commit/63317441c876057d086d8f6c09c270944d6bc6f0))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.21 ([#27](https://github.com/jr200-labs/nats-otlp-forwarder/issues/27)) ([2fd663f](https://github.com/jr200-labs/nats-otlp-forwarder/commit/2fd663fc88bfeb1eb33def931f7a19f084f0a55c))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.23 ([#28](https://github.com/jr200-labs/nats-otlp-forwarder/issues/28)) ([494b0c8](https://github.com/jr200-labs/nats-otlp-forwarder/commit/494b0c81166aaf0bfb618f32afc055ec2a86a450))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.27 ([#29](https://github.com/jr200-labs/nats-otlp-forwarder/issues/29)) ([c802f43](https://github.com/jr200-labs/nats-otlp-forwarder/commit/c802f43e24e9dd9732a5b3d5f8e442892776652a))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.29 ([#30](https://github.com/jr200-labs/nats-otlp-forwarder/issues/30)) ([3abad7e](https://github.com/jr200-labs/nats-otlp-forwarder/commit/3abad7e88b61e31bdf2ae1e6ddac651a36d262bf))
+* **deps:** update shared workflow ref ([#19](https://github.com/jr200-labs/nats-otlp-forwarder/issues/19)) ([95bb469](https://github.com/jr200-labs/nats-otlp-forwarder/commit/95bb4692aaa1e51d5efbb64018d82bc168e1ddba))
+* **deps:** update shared workflow ref ([#21](https://github.com/jr200-labs/nats-otlp-forwarder/issues/21)) ([81b26f4](https://github.com/jr200-labs/nats-otlp-forwarder/commit/81b26f408b1cc134002838df32c1165650d1ea12))
+* **deps:** update shared workflow ref ([#22](https://github.com/jr200-labs/nats-otlp-forwarder/issues/22)) ([e062871](https://github.com/jr200-labs/nats-otlp-forwarder/commit/e062871177aa89075dfef0c0cb9b4c1c74893f8e))
+* **deps:** update shared workflow ref ([#23](https://github.com/jr200-labs/nats-otlp-forwarder/issues/23)) ([730ca41](https://github.com/jr200-labs/nats-otlp-forwarder/commit/730ca4154a359397cfc0d87d9f79263120b3252b))
+* **deps:** update shared workflow ref ([#24](https://github.com/jr200-labs/nats-otlp-forwarder/issues/24)) ([9c04991](https://github.com/jr200-labs/nats-otlp-forwarder/commit/9c04991d498d29eb3a02a37eab34f73e7d1db3ec))
+
 ## [0.1.3](https://github.com/jr200-labs/nats-otlp-forwarder/compare/v0.1.2...v0.1.3) (2026-06-19)
 
 
