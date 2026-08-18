@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.6](https://github.com/jr200-labs/nats-otlp-forwarder/compare/v0.1.5...v0.1.6) (2026-08-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.36 ([#35](https://github.com/jr200-labs/nats-otlp-forwarder/issues/35)) ([7c9c9e3](https://github.com/jr200-labs/nats-otlp-forwarder/commit/7c9c9e3bb60a297ee74dadae1fc5f94753448ceb))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.37 ([#37](https://github.com/jr200-labs/nats-otlp-forwarder/issues/37)) ([2df5e5e](https://github.com/jr200-labs/nats-otlp-forwarder/commit/2df5e5e05d0d0e22935c93378abb8e95a5b657bb))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.38 ([#38](https://github.com/jr200-labs/nats-otlp-forwarder/issues/38)) ([3e6f5cc](https://github.com/jr200-labs/nats-otlp-forwarder/commit/3e6f5cc3fae5426e0a2540669e86d3aa892c13d6))
+
 ## [0.1.5](https://github.com/jr200-labs/nats-otlp-forwarder/compare/v0.1.4...v0.1.5) (2026-08-04)
 
 
