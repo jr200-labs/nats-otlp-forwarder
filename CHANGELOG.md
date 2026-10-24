@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.6](https://github.com/jr200-labs/nats-otlp-forwarder/compare/v0.1.5...v0.1.6) (2026-10-24)
+
+
+### Bug Fixes
+
+* **deps:** update actions/create-github-app-token action to v3.3.0 ([#40](https://github.com/jr200-labs/nats-otlp-forwarder/issues/40)) ([c90fd08](https://github.com/jr200-labs/nats-otlp-forwarder/commit/c90fd08cfccfc9927a8890687ea276b0c7ea71c0))
+* **deps:** update actions/create-github-app-token action to v3.3.0 ([#43](https://github.com/jr200-labs/nats-otlp-forwarder/issues/43)) ([87ce6c1](https://github.com/jr200-labs/nats-otlp-forwarder/commit/87ce6c14ce977ccbbac028bc28e6286daf9d09f7))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.36 ([#35](https://github.com/jr200-labs/nats-otlp-forwarder/issues/35)) ([7c9c9e3](https://github.com/jr200-labs/nats-otlp-forwarder/commit/7c9c9e3bb60a297ee74dadae1fc5f94753448ceb))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.37 ([#37](https://github.com/jr200-labs/nats-otlp-forwarder/issues/37)) ([2df5e5e](https://github.com/jr200-labs/nats-otlp-forwarder/commit/2df5e5e05d0d0e22935c93378abb8e95a5b657bb))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.38 ([#38](https://github.com/jr200-labs/nats-otlp-forwarder/issues/38)) ([3e6f5cc](https://github.com/jr200-labs/nats-otlp-forwarder/commit/3e6f5cc3fae5426e0a2540669e86d3aa892c13d6))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.39 ([#39](https://github.com/jr200-labs/nats-otlp-forwarder/issues/39)) ([97bb1be](https://github.com/jr200-labs/nats-otlp-forwarder/commit/97bb1be53b12e700df24b81def337db3b12d5a35))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.87 ([#42](https://github.com/jr200-labs/nats-otlp-forwarder/issues/42)) ([f72e319](https://github.com/jr200-labs/nats-otlp-forwarder/commit/f72e319ac8d99fa40238334ddc897279354e0f3b))
+
 ## [0.1.5](https://github.com/jr200-labs/nats-otlp-forwarder/compare/v0.1.4...v0.1.5) (2026-08-04)
 
 
