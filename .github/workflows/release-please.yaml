@@ -6,16 +6,6 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
-    inputs:
-      runner:
-        description: Runner pool
-        required: false
-        type: choice
-        default: configured
-        options:
-          - configured
-          - self-hosted
-          - github-hosted
 
 concurrency:
   group: release-please-${{ github.ref }}
@@ -33,7 +23,7 @@ jobs:
     uses: jr200-labs/github-action-templates/.github/workflows/release_please.yaml@master
     with:
       target-branch: master
-      runner: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.runner == 'self-hosted' && 'self-hosted' || github.event_name == 'workflow_dispatch' && github.event.inputs.runner == 'github-hosted' && 'ubuntu-latest' || fromJSON(vars.RUNNER_PROFILES)[vars.RUNNER_PROFILE].default }}
+      runner: ${{ fromJSON(vars.RUNNER_PROFILES)[vars.RUNNER_PROFILE].default }}
     secrets:
       app_private_key: ${{ secrets.INTEGRATION_APP_PRIVATE_KEY }}
 
@@ -45,11 +35,15 @@ jobs:
   dispatch-release-published:
     needs: release
     if: needs.release.outputs.release_created == 'true'
-    runs-on: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.runner == 'self-hosted' && 'self-hosted' || github.event_name == 'workflow_dispatch' && github.event.inputs.runner == 'github-hosted' && 'ubuntu-latest' || fromJSON(vars.RUNNER_PROFILES)[vars.RUNNER_PROFILE].default }}
+    strategy:
+      fail-fast: false
+      matrix:
+        release: ${{ fromJSON(needs.release.outputs.releases) }}
+    runs-on: ${{ fromJSON(vars.RUNNER_PROFILES)[vars.RUNNER_PROFILE].default }}
     steps:
       - name: Mint app token
         id: app-token
-        uses: actions/create-github-app-token@v3.2.0
+        uses: actions/create-github-app-token@v3.3.0
         with:
           client-id: ${{ vars.INTEGRATION_CLIENT_ID }}
           private-key: ${{ secrets.INTEGRATION_APP_PRIVATE_KEY }}
@@ -61,8 +55,35 @@ jobs:
           event-type: release-published
           client-payload: |-
             {
-              "ref": "refs/tags/${{ needs.release.outputs.tag_name }}",
-              "sha": "${{ needs.release.outputs.sha }}",
-              "tag": "${{ needs.release.outputs.tag_name }}",
-              "checkout-ref": "${{ needs.release.outputs.tag_name }}"
+              "ref": "refs/tags/${{ matrix.release.tag_name }}",
+              "sha": "${{ matrix.release.sha }}",
+              "tag": "v${{ matrix.release.version }}",
+              "release-tag": "${{ matrix.release.tag_name }}",
+              "release-id": ${{ matrix.release.release_id }},
+              "component": "${{ matrix.release.component }}",
+              "path": "${{ matrix.release.path }}",
+              "checkout-ref": "${{ matrix.release.tag_name }}"
             }
+
+  # Go modules are published by their release tag, so they do not have a
+  # separate registry-publish workflow to provide the completion signal.
+  # Repositories opt in with publisher: release entries in artifacts.yaml.
+  notify-renovate-for-release-artifacts:
+    needs: release
+    if: needs.release.outputs.release_created == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        release: ${{ fromJSON(needs.release.outputs.releases) }}
+    uses: jr200-labs/github-action-templates/.github/workflows/notify_artifact_published.yaml@master
+    with:
+      checkout-ref: ${{ matrix.release.tag_name }}
+      publisher: release
+      component: ${{ matrix.release.component }}
+      version: v${{ matrix.release.version }}
+      source-sha: ${{ matrix.release.sha }}
+      dispatch-client-id: ${{ vars.RENOVATE_DISPATCH_CLIENT_ID || vars.INTEGRATION_CLIENT_ID }}
+      runner: ${{ fromJSON(vars.RUNNER_PROFILES)[vars.RUNNER_PROFILE].default }}
+    secrets:
+      dispatch_app_private_key: ${{ secrets.RENOVATE_DISPATCH_APP_PRIVATE_KEY }}
+      integration_app_private_key: ${{ secrets.INTEGRATION_APP_PRIVATE_KEY }}
